@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Hrd Memory</string>
+
+
+
+
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Ocr dependencies cannot be downloaded due to low device storage</string>
+
+
+    <string name="scan">Scan</string>
+    <string name="hrd_antwerp">HRD Antwerp</string>
+
+
+
+
+
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="swi">Switch</string>
+    <string name="video_memory_box">Video Memory Box</string>
+    <string name="choose_video">Choose Video</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="i_agree_with_terms_and_conditions">I agree with terms and conditions</string>
+    <string name="upload_video">Upload Video</string>
+    <string name="watch_movie">watch movie</string>
+    <string name="download_pdf">download PDF</string>
+    <string name="upload_string_choose_video">upload @string/choose_video</string>
+    <string name="upload_string_watch_movie">upload movie</string>
+    <string name="send_request">Send Request</string>
+    <string name="back">back</string>
+    <string name="characteristics">Characteristics</string>
+    <string name="natural_diamond">Natural Diamond</string>
+    <string name="place_the_inscription_in_front_at_the_camera">Place the inscription in front at the camera</string>
+    <string name="upload_in_progress">Upload in progress</string>
+    <string name="noServices">Your device does not support scan mode, please enter the HRD code manually</string>
+    <string name="Insert_the_HRD_code">Insert the HRD code</string>
+    <string name="cancel">Cancel</string>
+    <string name="Video_not_present">Video not present</string>
+    <string name="Video_present">Video already present</string>
+    <string name="cancel_video">Do you want upload a new video? The old video will be deleted.</string>
+    <string name="ok_proceed">OK, proceed</string>
+    <string name="Please_insert_your_name">Please insert your name</string>
+    <string name="Please_insert_a_valid_email">Please insert a valid email</string>
+    <string name="Please_choose_a_video">Please choose a video</string>
+    <string name="Please_agree_with_terms_and_conditions">Please agree with terms and conditions</string>
+    <string name="Upload_completed">Upload completed</string>
+    <string name="Upload_message">Your video has been uploaded, you will receive the HRD Memory Box video at your mail address</string>
+    <string name="Upload_message2">Your video has been uploaded, video processing will take few minutes. Check your email for confirmation</string>
+
+
+</resources>

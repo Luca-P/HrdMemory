@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "462629261811",
+    "firebase_url": "https://hrdmemory-5a3f4.firebaseio.com",
+    "project_id": "hrdmemory-5a3f4",
+    "storage_bucket": "hrdmemory-5a3f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462629261811:android:f2de5a85a38c6966",
+        "android_client_info": {
+          "package_name": "com.hrdmemory.luca1.hrdmemory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462629261811-igtn4e7j897930uo4lsuqbcn6lr0ttjf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hrdmemory.luca1.hrdmemory",
+            "certificate_hash": "6fdf7aea4211aef75837f4a2631265c32cdd6895"
+          }
+        },
+        {
+          "client_id": "462629261811-2out05b5juvlf9fnaj78o9hks0et0jun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGiXkg0bUNsF1j8ZBy8Q0J1HcU02G-mTU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462629261811-2out05b5juvlf9fnaj78o9hks0et0jun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

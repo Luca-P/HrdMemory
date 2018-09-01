@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buttonBack"
+            app:srcCompat="@drawable/navbar3" />
+
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="220dp"
+            android:layout_marginTop="20dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="@+id/imageView10"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/stellina" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/cristallo" />
+
+        <Button
+            android:id="@+id/buttonGallery"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorBeige"
+            android:text="@string/gallery"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imagePreview"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/buttonCamera"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/colorBeige"
+            android:text="@string/camera"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/buttonGallery"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/buttonUpload"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="240dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/upload_video"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonCamera"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/buttonBack"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="68dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/back"
+            android:textColor="@color/colorPrimary"
+            android:backgroundTint="@color/colorBeige"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+        <com.budiyev.android.circularprogressbar.CircularProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="158dp"
+            android:layout_height="158dp"
+            app:animateProgress="true"
+            app:backgroundStrokeColor="#ff3f51b5"
+            app:backgroundStrokeWidth="2dp"
+            app:drawBackgroundStroke="false"
+            app:foregroundStrokeCap="butt"
+            app:foregroundStrokeColor="#ffff4081"
+            app:foregroundStrokeWidth="7dp"
+            app:indeterminate="false"
+            app:indeterminateMinimumAngle="45"
+            app:indeterminateRotationAnimationDuration="1200"
+            app:indeterminateSweepAnimationDuration="600"
+            app:layout_constraintBottom_toBottomOf="@+id/imagePreview"
+            app:layout_constraintEnd_toEndOf="@+id/imagePreview"
+            app:layout_constraintStart_toStartOf="@+id/imagePreview"
+            app:layout_constraintTop_toTopOf="@+id/imagePreview"
+            app:maximum="100"
+            app:progress="0"
+            app:progressAnimationDuration="100"
+            app:startAngle="270" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

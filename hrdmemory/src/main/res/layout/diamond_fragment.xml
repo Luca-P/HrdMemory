@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="250dp"
+            android:layout_height="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.522"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/textViewClarity"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginBottom="77dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/textview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCut"
+            tools:text="Clarity: Brilliant" />
+
+        <TextView
+            android:id="@+id/textViewColor"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            tools:text="Color: Brilliant" />
+
+        <TextView
+            android:id="@+id/textViewCarat"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginBottom="76dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/textview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCut"
+            tools:text="Carat: Brilliant" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="70dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/upload_string_watch_movie"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/imageButtonUpload"
+            app:layout_constraintStart_toStartOf="@+id/imageButtonUpload"
+            app:layout_constraintTop_toTopOf="@+id/imageButtonCert" />
+
+        <ImageButton
+            android:id="@+id/imageButtonUpload"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2"
+            app:srcCompat="@drawable/upload" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@null"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageButtonUpload"
+            app:srcCompat="@drawable/play" />
+
+        <ImageButton
+            android:id="@+id/imageVideoDia"
+            android:layout_width="240dp"
+            android:layout_height="140dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="4dp"
+            android:background="@null"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/immdia"
+            android:scaleType="fitCenter"
+            android:tint="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/video" />
+
+        <ImageButton
+            android:id="@+id/imageButtonVideo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitStart"
+            app:layout_constraintBottom_toBottomOf="@+id/imageVideoDia"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageVideoDia"
+            app:srcCompat="@drawable/play" />
+
+        <TextView
+            android:id="@+id/textViewCodeDia"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/textview"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageVideoDia"
+            tools:text="HRD Antwerp 123456789012" />
+
+        <ImageButton
+            android:id="@+id/imageButtonCert"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:background="@null"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageButton2"
+            app:srcCompat="@drawable/download" />
+
+        <TextView
+            android:id="@+id/textViewPDF"
+            android:layout_width="70dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="-10dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/download_pdf"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/imageButtonCert"
+            app:layout_constraintStart_toStartOf="@+id/imageButtonCert"
+            app:layout_constraintTop_toTopOf="@+id/imageButtonCert" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/characteristics"
+            android:textAlignment="center"
+            android:textColor="#030303"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewWatch" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/natural_diamond"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+        <TextView
+            android:id="@+id/textViewCut"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="18dp"
+            android:text="@string/textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            tools:text="Cut: Brilliant" />
+
+        <TextView
+            android:id="@+id/textViewWatch"
+            android:layout_width="72dp"
+            android:layout_height="39dp"
+            android:text="@string/watch_movie"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewPDF" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewCodeDia"
+            app:layout_constraintStart_toEndOf="@+id/textViewCodeDia"
+            app:layout_constraintTop_toTopOf="@+id/textViewCodeDia"
+            app:srcCompat="@drawable/qrcodem" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="200dp"
+            android:layout_height="2dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCodeDia" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
