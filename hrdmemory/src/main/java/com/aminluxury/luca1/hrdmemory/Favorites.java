@@ -1,6 +1,9 @@
 package com.aminluxury.luca1.hrdmemory;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -74,6 +77,46 @@ public class Favorites extends Fragment {
 
         // Assign adapter to ListView
         listView.setAdapter(adapter);
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view,
+                                           int position, long id) {
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage(R.string.cancel_code);
+                builder.setTitle(R.string.cancel_favorites);
+                builder.setPositiveButton(R.string.ok_proceed, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String  itemValue    = (String) listView.getItemAtPosition(position);
+                        values.remove(position);
+
+
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.remove(itemValue);
+                        editor.apply();
+
+
+                        adapter.notifyDataSetChanged();
+
+                        Toast.makeText(getContext(), R.string.cancella, Toast.LENGTH_LONG).show();
+                    }
+                });
+                builder.setNeutralButton(R.string.cancel,null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+
+
+                return true;
+            }
+
+        });
+
+
 
         // ListView Item Click Listener
         listView.setOnItemClickListener(new OnItemClickListener() {

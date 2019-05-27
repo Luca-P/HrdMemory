@@ -64,7 +64,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 // Permission request codes need to be < 256
+import android.databinding.DataBindingUtil;
+import android.content.Intent;
 
 
 public class MainActivity extends AppCompatActivity
@@ -75,6 +78,8 @@ public class MainActivity extends AppCompatActivity
     String bucket = "video.memory.hrd";
     TransferUtility transferUtility;
     File uploadToS3;
+    public Boolean isIntroDone = false;
+    public Integer isInt = 0;
 
   public   List<String> listing;
   public  Boolean isChina;
@@ -82,37 +87,17 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // callback method to call credentialsProvider method.
-        isChina=false;
-        new JsonTask().execute("http://ip-api.com/json/?callback");
+        Intent intent0 = getIntent();
+
+        if (!intent0.hasExtra("bucketno")) {
+            Intent intent = new Intent(MainActivity.this, IntroActivity.class);
+            startActivity(intent);
+            return;
+        }
+        else {
 
 
-        // callback method to call the setTransferUtility method
-       // setTransferUtility();
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        displayFirst();
-
-        Button button = (Button) this.findViewById(R.id.imageVideoDia);
+            //   Button button = (Button) this.findViewById(R.id.imageVideoDia);
      /*   button.setOnClickListener((OnClickListener) new OnClickListener() {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -120,21 +105,51 @@ public class MainActivity extends AppCompatActivity
         });
         */
 
+            isChina = false;
+            new JsonTask().execute("http://ip-api.com/json/?callback");
 
-        GoogleApiAvailability googleApiAvailability = GoogleApiAvailability.getInstance();
 
-        int resultCode = googleApiAvailability.isGooglePlayServicesAvailable(this);
+            // callback method to call the setTransferUtility method
+            // setTransferUtility();
+            setContentView(R.layout.activity_main);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
 
-        if (resultCode == ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED) {
-            googleApiAvailability.getErrorDialog(this, resultCode, 1000).show();
-            return;
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            });
+
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.addDrawerListener(toggle);
+            toggle.syncState();
+
+            NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(this);
+
+            displayFirst();
+
+
+            GoogleApiAvailability googleApiAvailability = GoogleApiAvailability.getInstance();
+
+            int resultCode = googleApiAvailability.isGooglePlayServicesAvailable(this);
+
+            if (resultCode == ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED) {
+                googleApiAvailability.getErrorDialog(this, resultCode, 1000).show();
+                return;
+            }
+
+
+            LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
+                    new IntentFilter("reloadList"));
+
         }
-
-
-        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
-                new IntentFilter("reloadList"));
-
-
     }
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
@@ -172,7 +187,7 @@ public class MainActivity extends AppCompatActivity
 
                 while ((line = reader.readLine()) != null) {
                     buffer.append(line+"\n");
-                    Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
+                    Log.d("Response0 JSON: ", "> " + line);   //here u ll get whole response...... :-)
 
                 }
 
@@ -180,11 +195,13 @@ public class MainActivity extends AppCompatActivity
 
 
             } catch (MalformedURLException e) {
+                Log.d("catch: ", "> " + e);
                 s3credentialsProvider();
-                e.printStackTrace();
+
             } catch (IOException e) {
+                Log.d("catch1 ", "> " + e);
                 s3credentialsProvider();
-                e.printStackTrace();
+
             } finally {
                 if (connection != null) {
                     connection.disconnect();
@@ -194,8 +211,9 @@ public class MainActivity extends AppCompatActivity
                         reader.close();
                     }
                 } catch (IOException e) {
+                    Log.d("catch2 ", "> " + e);
                     s3credentialsProvider();
-                    e.printStackTrace();
+
                 }
             }
             return null;
@@ -204,7 +222,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            Log.d("Response: ", "json: " + result);   //here u ll get whole response...... :-)
+            Log.d("Response1: ", "json: " + result);   //here u ll get whole response...... :-)
             if (result ==null)
             {
                 isChina=false;

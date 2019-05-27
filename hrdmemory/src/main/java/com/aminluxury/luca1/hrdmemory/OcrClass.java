@@ -87,7 +87,9 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 import com.aminluxury.luca1.hrdmemory.CameraSource;
 import com.aminluxury.luca1.hrdmemory.CameraSourcePreview;
 import com.aminluxury.luca1.hrdmemory.GraphicOverlay;
+//import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextBlock;
+//import com.google.android.gms.vision.text.TextRecognizer;
 import com.google.android.gms.vision.text.TextRecognizer;
 import com.victor.loading.rotate.RotateLoading;
 
@@ -299,16 +301,18 @@ public final class OcrClass extends Fragment {
             // Get extra data included in the Intent
             String message = intent.getStringExtra("message");
             Log.d("receiver", "Got message: " + message);
-            if (message.length()==12) {
+            if ((message.length()==12)||(message.length()==11)) {
 
                 codeFound(message);
 
             }
             else {
+
                 boolean autoFocus = getActivity().getIntent().getBooleanExtra(AutoFocus,true);
                 boolean useFlash = getActivity().getIntent().getBooleanExtra(UseFlash, false);
 
                 createCameraSource(autoFocus, useFlash);
+
             }
         }
     };
@@ -614,31 +618,36 @@ public final class OcrClass extends Fragment {
             htmlString = htmlString + "</val></td>    </tr>  </table> <img src='"+certificate +"' width='600px'>   </body>  </html>";
             Log.d("receiver", "Got web0: " + htmlString);
 
-            Set<String> set = new HashSet<String>();
-            set.add("html:"+htmlString);
-            set.add("carat:"+carat);
-            set.add("clarity:"+clarity);
-            set.add("colour:"+colour);
-            set.add("shape:"+cut);
-            set.add("code:"+code);
-            set.add("certificate:"+certificate);
+            if (carat.length()>2) {
+                Set<String> set = new HashSet<String>();
+                set.add("html:" + htmlString);
+                set.add("carat:" + carat);
+                set.add("clarity:" + clarity);
+                set.add("colour:" + colour);
+                set.add("shape:" + cut);
+                set.add("code:" + code);
+                set.add("certificate:" + certificate);
 
 
-            saveData(code, set);
-            //--SAVE Data
+                saveData(code, set);
+                //--SAVE Data
 
-            FragmentDiamond fragment2 = new FragmentDiamond();
-            fragment2.htmlString= htmlString;
-            fragment2.carat=carat;
-            fragment2.clarity=clarity;
-            fragment2.colour=colour;
-            fragment2.shape=cut;
-            fragment2.code=code;
-            fragment2.certificateLink= certificate;
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.content_frame, fragment2);
-            fragmentTransaction.commit();
+                FragmentDiamond fragment2 = new FragmentDiamond();
+                fragment2.htmlString = htmlString;
+                fragment2.carat = carat;
+                fragment2.clarity = clarity;
+                fragment2.colour = colour;
+                fragment2.shape = cut;
+                fragment2.code = code;
+                fragment2.certificateLink = certificate;
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment2);
+                fragmentTransaction.commit();
+            }
+            else {
+                isParsingWeb=false;
+            }
          //   rotateLoading.stop();
         } catch (IOException e) {
             e.printStackTrace();
@@ -685,7 +694,7 @@ public final class OcrClass extends Fragment {
         // on screen.
         TextRecognizer textRecognizer = new TextRecognizer.Builder(context).build();
         textRecognizer.setProcessor(new OcrDetectorProcessor(mGraphicOverlay));
-        Log.d(TAG, "is operational"+ textRecognizer.isOperational());
+        Log.d(TAG, "is operational "+ textRecognizer.isOperational());
         if (!textRecognizer.isOperational()) {
             // Note: The first time that an app using a Vision API is installed on a
             // device, GMS will download a native libraries to the device in order to do detection.
@@ -840,17 +849,6 @@ public final class OcrClass extends Fragment {
                     GoogleApiAvailability.getInstance().getErrorDialog(getActivity(), code, RC_HANDLE_GMS);
             dlg.show();
 
-            if (mCameraSource != null) {
-                try {
-                    mPreview.start(mCameraSource, mGraphicOverlay);
-                } catch (IOException e) {
-                    Log.e(TAG, "Unable to start camera source.", e);
-                    mCameraSource.release();
-                    mCameraSource = null;
-                }
-            }
-        }
-        else {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setTitle(R.string.app_name);
@@ -866,14 +864,47 @@ public final class OcrClass extends Fragment {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.cancel();
-                    insertManulally();
+                    // insertManulally();
                 }
             });
 
 
             builder.show();
         }
+            if (mCameraSource != null) {
+                try {
+                    mPreview.start(mCameraSource, mGraphicOverlay);
+                } catch (IOException e) {
+                    Log.e(TAG, "Unable to start camera source.", e);
+                    mCameraSource.release();
+                    mCameraSource = null;
+                }
+            }
 
+      /*  else {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle(R.string.app_name);
+            builder.setMessage(R.string.noServices);
+// Set up the input
+            final EditText input = new EditText(getContext());
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+            builder.setView(input);
+
+// Set up the buttons
+            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                   // insertManulally();
+                }
+            });
+
+
+            builder.show();
+        }
+*/
 
     }
 

@@ -57,13 +57,33 @@
     <string name="Video_not_present">Video not present</string>
     <string name="Video_present">Video already present</string>
     <string name="cancel_video">Do you want upload a new video? The old video will be deleted.</string>
+    <string name="cancel_code">Are you sure to remove the code from favorite?</string>
+    <string name="cancel_favorites">Remove the code from favorites</string>
     <string name="ok_proceed">OK, proceed</string>
     <string name="Please_insert_your_name">Please insert your name</string>
     <string name="Please_insert_a_valid_email">Please insert a valid email</string>
     <string name="Please_choose_a_video">Please choose a video</string>
     <string name="Please_agree_with_terms_and_conditions">Please agree with terms and conditions</string>
     <string name="Upload_completed">Upload completed</string>
-    <string name="Upload_message">Your video has been uploaded, you will receive the HRD Memory Box video at your mail address</string>
+    <string name="Upload_message">Your video has been uploaded. Check your email for confirmation</string>
     <string name="Upload_message2">Your video has been uploaded, video processing will take few minutes. Check your email for confirmation</string>
+    <string name="skipString">SKIP</string>
+    <string name="tut0">The first diamond with your video message</string>
+    <string name="tut1">Download and open\n the HRD memory app</string>
+    <string name="tut2">Scan the the number and the QR code of your diamond</string>
+    <string name="tut3">Open the PDF to visualize the HRD certificate</string>
+    <string name="tut4">Tap on \'Upload Movie\' and\n register your credentials</string>
+    <string name="tut5">Agree the HRD Video Memory Box and Privacy policy</string>
+    <string name="tut6">Choose your video\n from the gallery or camera</string>
+    <string name="tut7">Upload the movie tapping on \'Upload Movie\'</string>
+    <string name="tut8">The video is immediately uploaded</string>
+    <string name="tut9">You will receive an email of confirmation\n in a few minutes with the video compressed for your HRD Video Memory Box</string>
+    <string name="tut10">Connect the HRD Video Memory Box with your computer</string>
+    <string name="tut11">Drag the video file in your HRD Video Memory Box folder</string>
+    <string name="tut12">The video now is saved and ready to play</string>
+    <string name="favorites">Favorites</string>
+
+    <string name="cancella">Code removed</string>
+
 
 </resources>
