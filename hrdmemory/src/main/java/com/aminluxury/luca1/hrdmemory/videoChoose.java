@@ -250,7 +250,7 @@ public class videoChoose extends AppCompatActivity {
       if (isVideoBox) {
           memoryBox = "Y";
       }
-      String keyFile = code + "-" + emailString + "-" + memoryBox + ".mp4";
+      String keyFile = code + "+_" + emailString + "+_" + memoryBox + ".mp4";
       String safe = keyFile.replace("@", "&#64");
       keyFile = keyFile.replace("\\s", "");
       String m = URLDecoder.decode(keyFile, "UTF-8");

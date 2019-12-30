@@ -62,12 +62,23 @@ import com.google.android.gms.common.api.CommonStatusCodes;
 import com.aminluxury.luca1.hrdmemory.CameraSource;
 import com.aminluxury.luca1.hrdmemory.CameraSourcePreview;
 import com.aminluxury.luca1.hrdmemory.GraphicOverlay;
+import com.google.android.gms.vision.text.Text;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
         import com.aminluxury.luca1.hrdmemory.GraphicOverlay;
         import com.google.android.gms.vision.Detector;
         import com.google.android.gms.vision.text.TextBlock;
+
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.JavaCameraView;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Mat;
+
+import java.util.List;
+
 
 /**
  * A very simple Processor which receives detected TextBlocks and adds them to the overlay
@@ -102,11 +113,20 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
     public void receiveDetections(Detector.Detections<TextBlock> detections) {
         mGraphicOverlay.clear();
         SparseArray<TextBlock> items = detections.getDetectedItems();
+
         for (int i = 0; i < items.size(); ++i) {
+
+            List<? extends Text> textLines = items.valueAt(i).getComponents();
+            for (int x = 0; x < textLines.size(); ++x) {
+                int numeroParole = textLines.get(x).getComponents().size();
+                Log.d("tag", "lettura linea " + textLines.get(x).getValue());
+
+            }
 
             String str = items.valueAt(i).getValue();
             str = str.replaceAll("\\D+","");
-            sendMessage(str);
+
+          //  sendMessage(str);
             TextBlock item = items.valueAt(i);
             OcrGraphic graphic = new OcrGraphic(mGraphicOverlay, item);
             mGraphicOverlay.add(graphic);

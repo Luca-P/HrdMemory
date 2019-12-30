@@ -39,6 +39,8 @@ import com.tonyodev.fetch2.Func;
 import com.tonyodev.fetch2.NetworkType;
 import com.tonyodev.fetch2.Priority;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +85,7 @@ public class FragmentDiamond extends Fragment   {
                     {
                         videoLink = listing.get(i);
                         videoLink.replace("&#64","@");
-
+                        videoLink = videoLink.replaceAll("\\s+","%2B");
                     }
                 }
                 if  (videoLink==null)
@@ -110,6 +112,7 @@ public class FragmentDiamond extends Fragment   {
                     {
                         videoLink = listing.get(i);
                         videoLink.replace("&#64","@");
+                        videoLink = videoLink.replaceAll("\\s+","%2B");
 
                     }
                 }
@@ -259,10 +262,35 @@ public class FragmentDiamond extends Fragment   {
                     for (int i = 0; i < listing.size(); i++) {
                         if (listing.get(i).contains(code)) {
                             videoLink = listing.get(i);
-                             videoLink.replace("&#64","@");
+                            videoLink.replace("\u00A0", "%2B");
+                            videoLink.replaceAll("\\s+","%2B");
+                            if (videoLink.contains(" "))
+                            {
+                                Log.d("receiver", "Got : " + videoLink);
+                               videoLink = videoLink.replaceAll("\\s+","+");
+                            }
+                            videoLink.replaceAll("%20","%2B");
+                            videoLink.replace("&#64","@");
+
 
                         }
                     }
+
+                    // convert String to char[] array
+                    Log.d("receiver", "Got : " + videoLink);
+                         if (videoLink != null) {
+                             // using simple for loop
+                             for (int i = 0; i < videoLink.length(); i++) {
+                                 System.out.print(videoLink.charAt(i));
+                                 Log.d("receiver", "Got : " + videoLink.charAt(i));
+                                 if (videoLink.charAt(i) == " ".charAt(0)) {
+                                     videoLink = videoLink.replaceFirst(String.valueOf(videoLink.charAt(i)), "%2B");
+                                 }
+                             }
+                         }
+
+
+
                     if (videoLink == null) {
                         buttonVideo.setVisibility(View.INVISIBLE);
 
@@ -308,7 +336,7 @@ public class FragmentDiamond extends Fragment   {
          for (int i = 0; i < listing.size(); i++) {
              if (listing.get(i).contains(code)) {
                  videoLink = listing.get(i);
-                // videoLink.replace("&#64","@");
+                 videoLink.replace("&#64","@");
 
              }
          }
